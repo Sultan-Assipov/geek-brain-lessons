@@ -1,0 +1,75 @@
+# task 1
+list_of_stuff = ["hello", 1, 2, 3, [(1,2), 1, True], True]
+for element in list_of_stuff:
+    print (type(element))
+
+# task 2
+string_task_2 = input("enter the list via space: ")
+list_task_2 = string_task_2.split(" ")
+print(list_task_2)
+for index in range(0, len(list_task_2) - 1, 2):
+    list_task_2[index],list_task_2[index+1] = list_task_2[index+1],list_task_2[index]
+print(list_task_2)
+
+# task 3 не красивое решение
+month = int(input("enter the month's number: "))
+list_of_yt = ["winter", "winter", "spring", "spring", "spring", "summer", "summer", "summer", "autumn", "autumn",
+              "autumn", "winter"]
+dict_of_yt = {}
+dict_of_yt.update(dict.fromkeys([0, 1, 11], "winter"))
+dict_of_yt.update(dict.fromkeys([2,3, 4], "spring"))
+dict_of_yt.update(dict.fromkeys([5, 6, 7], "summer"))
+dict_of_yt.update(dict.fromkeys([8, 9, 10], "autumn"))
+print(dict_of_yt)
+try:
+    print("the time of the year from list is: ", list_of_yt[month-1])
+except IndexError:
+    print("enter correct month number")
+if dict_of_yt.get(month):
+    print("time of the year from dict: ", dict_of_yt.get(month))
+else:
+    print("enter correct number")
+
+# task 4
+string_task_4 = input("enter words via space: ")
+list_task_4 = string_task_4.split(" ")
+i = 1
+for item in list_task_4:
+    print(f'{i} {item[:10] if len(item)>10 else item}')
+    i += 1
+
+# task 5
+list_task_5 = [5, 4, 3, 2, 1]
+while True:
+    new_rating = int(input("enter rating: "))
+    if new_rating<min(list_task_5):
+        list_task_5.append(new_rating)
+        print(list_task_5)
+        continue
+    for item in list_task_5:
+        if item > new_rating:
+            continue
+        else:
+            print(item)
+            list_task_5.insert(list_task_5.index(item), new_rating)
+            print(list_task_5)
+            break
+
+# task 6
+list_task_6 =[]
+count = 1
+key_list = ["Name", "Price", "Quantity", "Units"]
+output_dict = {}
+for key in key_list:
+    output_dict[key] = []
+while True:
+    value_list = []
+    dict_iteration = {}
+    for key in key_list:
+        dict_iteration[key] = input(f"please enter value for {key}: ")
+        output_dict[key].append(dict_iteration[key])
+    list_task_6.append((count, dict_iteration))
+    count += 1
+    print(list_task_6)
+    print(output_dict)
+    continue
